@@ -1,0 +1,52 @@
+.rules{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: #0a0a0ba1;
+
+    z-index: 10;
+
+    display: grid;
+    place-content: center;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2{
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+    }
+
+    &__icon{
+        height: 24px;
+    }
+
+    &__cont{
+        background: white;
+        padding: 32px;
+        border-radius: 16px;
+    }
+
+    &__close-cont{
+        height: 32px;
+        width: 32px;
+        cursor: pointer;
+ 
+        border-radius: 99px;
+        display: grid;
+        place-content: center;
+
+        transition: 0.3s;
+
+        :hover{
+            background: #dfdfdf;
+        }
+    }
+
+    &__rules-img{
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+}

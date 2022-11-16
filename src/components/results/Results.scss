@@ -1,0 +1,250 @@
+@import '../../_global-vars.scss';
+
+#player-choice, #player-choice-win{
+    grid-area: player;
+}
+#house-choice, #house-choice-win{
+    grid-area: house;
+}
+
+// #player-choice-win, #house-choice-win{
+//     animation: win-show 0.5s ease-in-out 1s 1 forwards;
+// }
+
+.results{
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 10%;
+
+    &__cont{
+        display: grid;
+        grid-template-areas: 'player res house';
+    }
+
+    &__choice{
+        margin: 0 48px;
+
+        display: flex;
+        flex-direction: column;
+
+        &-label{
+            font-size: 24px;
+            // font-weight: 700;
+            color: $white;
+            letter-spacing: 4px;
+            margin: 0 0 32px 0;
+        }
+
+        &:first-of-type .game-btn{
+            animation-delay: 0.3s;
+        }
+
+        &:last-of-type .game-btn{
+            animation-delay: 0.6s;
+        }
+    }
+
+    &__btn-wrap{
+        position: relative;
+    }
+
+    &__placeholder{
+        position: absolute;
+        height: 138px;
+        width: 138px;
+        top: 0;
+
+        margin: 53px 53px 65px 53px;
+
+        border-radius: 9999px;
+        background-color: #11142eb3;
+        // z-index: 99;
+
+        &--win{
+            animation: win-show 1s ease-in .8s 1 forwards;
+            // animation:  win-show-stay 2s ease-in-out 2s infinite alternate;
+        }
+    }
+
+    &__res{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 0;
+
+        overflow: hidden;
+
+        grid-area: res;
+
+        animation: res-show 0.5s ease-in-out 1s 1 forwards;
+        
+
+        &-label{
+            font-size: 56px;
+            letter-spacing: 2px;
+            color: $white;
+            margin-bottom: 24px;
+            
+            min-width: 224px;
+
+            word-wrap: none;
+        }
+
+        &-btn{
+            width: 246px;
+            font-size: 16px;
+            background: $white;
+            color: $text-dark;
+            border: none;
+            outline: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            letter-spacing: 4px;
+
+            transition: 0.1s ease-out;
+            visibility: hidden;
+            
+            min-width: 224px;
+
+            animation: btn-show 0.2s ease-out 1.5s 1 forwards;
+
+            cursor: pointer;
+
+            &:hover{
+                color: $text-score;
+                letter-spacing: 6px;
+            }
+        }
+    }
+}
+
+@keyframes res-show {
+    0%{
+        width: 0
+    }
+
+    99%{
+        // width: 75%;
+        overflow: hidden;
+    }
+
+    100%{
+        width: 244px;
+        overflow: visible;
+    }
+}
+
+@keyframes res-show-alt {
+    0%{
+        width: 0
+    }
+
+    99%{
+        // width: 75%;
+        overflow: hidden;
+    }
+
+    100%{
+        width: 100%;
+        overflow: visible;
+    }
+}
+
+@keyframes btn-show {
+    0%{
+        transform: translateY(24px);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes win-show {
+    0%{
+        box-shadow: 0 0 0 0 #ffffff33;
+    }
+
+    100%{
+        box-shadow: 0 0 0 88px #ffffff13, 0 0 0 120px #ffffff13;
+    }
+}
+
+@keyframes win-show-stay {
+    0%{
+        box-shadow: 0 0 0 88px #ffffff13, 0 0 0 120px #ffffff13;
+    }
+
+    // 57%{
+    //     box-shadow: 0 0 0 100px #ffffff13, 0 0 0 130px #ffffff13;
+    // }
+
+    100%{
+        box-shadow: 0 0 0 140px #ffffff0a, 0 0 0 208px #ffffff0a;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .results{
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 744px) {
+    .results{
+        margin-top: -8%;
+        transform: scale(0.75);
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .results{
+        margin-top: 24px;
+        transform: scale(0.85);
+
+        &__cont{
+            grid-template-areas: 'player house'
+            'res res';
+        }
+
+        &__choice{
+            margin: 0 24px;
+            flex-direction: column-reverse;
+            &-label{
+                margin-bottom: 16px;
+                margin-top: 24px;
+            }
+        }
+
+        &__res{
+            animation: res-show-alt 0.5s ease-in-out 1s 1 forwards;
+            transform: scale(1.15) translateY(36px);
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .results{
+        &__choice{
+            margin: 0;
+           transform: scale(0.85);
+            &-label{
+                margin-top: 40px;
+                transform: scale(1.15);
+            }
+        }
+
+        &__res{
+            // width: 100%;
+            transform: scale(1.15) translateY(24px);
+        }
+
+    }
+}

@@ -1,0 +1,70 @@
+@import '../../_global-vars.scss';
+
+.game{
+    position: relative;
+    // height: 100%;
+    width: 100%;
+    // overflow: hidden;
+    margin-top: 24px;
+
+    &__bg-trick{
+        // z-index: 9;
+        position: absolute;
+        // height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__pentagon{
+        position: absolute;
+        transform: translateY(64px);
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        // z-index: 99;
+    }
+
+    &__btn-cont{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__btn-sect{
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+
+        // &:nth-of-type(1){
+        //     transform: translateY(32px);
+        // }
+
+        &:nth-of-type(2){
+            transform: translateY(-24px);
+            width: 440px;
+        }
+
+        &:nth-of-type(3){
+            transform: translateY(24px);
+            width: 330px;
+        }
+
+    }
+    // background-image: url('/images/bg-pentagon.svg');
+}
+
+@media only screen and (max-width: 480px) {
+    .game{
+        margin-top: 10vh;
+        transform: scale(0.85);
+    }
+  }
+
+@media only screen and (max-width: 348px) {
+  .game{
+      transform: scale(0.75);
+  }
+}
+  
